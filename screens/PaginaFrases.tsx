@@ -16,7 +16,7 @@ export default function TabOneScreen({
 }: RootTabScreenProps<"TabOne">) {
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>App Calculadora de IMC</Text>
+      <Text style={styles.title}>App gerador de Frases do dia</Text>
       <View
         style={styles.separator}
         lightColor="#eee"
