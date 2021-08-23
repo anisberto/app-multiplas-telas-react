@@ -9,6 +9,7 @@ import Colors from '../constants/Colors';
 import useColorScheme from '../hooks/useColorScheme';
 import ModalScreen from '../screens/PaginaHome';
 import NotFoundScreen from '../screens/PaginaDeStatus';
+import TabTreeScreen from '../screens/PaginaCronometro';
 import TabOneScreen from '../screens/PaginaFrases';
 import TabTwoScreen from '../screens/PaginaIMC';
 import { RootStackParamList, RootTabParamList, RootTabScreenProps } from '../types';
@@ -76,6 +77,14 @@ function BottomTabNavigator() {
         component={TabTwoScreen}
         options={{
           title: 'Calculadora de IMC',
+          tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
+        }}
+      />
+      <BottomTab.Screen
+        name="Tree"
+        component={TabTreeScreen}
+        options={{
+          title: 'Cronometro',
           tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
         }}
       />

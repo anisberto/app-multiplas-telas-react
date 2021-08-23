@@ -1,4 +1,5 @@
 import * as React from "react";
+import { useState } from "react";
 import {
   StyleSheet,
   SafeAreaView,
@@ -9,8 +10,12 @@ import {
 
 import EditScreenInfo from "../components/EditScreenInfo";
 import { Text, View } from "../components/Themed";
+import Functionalities from "../controller/functionalities";
 
 export default function TabTwoScreen() {
+  const [peso, setPeso] = useState("")
+  const [altura, setAltura] = useState("")
+  
   return (
     <View style={styles.container}>
       <Text style={styles.title}>App Calculadora de IMC</Text>
@@ -24,16 +29,23 @@ export default function TabTwoScreen() {
           style={styles.input}
           placeholder="Peso"
           keyboardType="numeric"
+          value={peso}
+          onChangeText={text=>setPeso(text)}
         />
         <TextInput
           style={styles.input}
           placeholder="Altura"
           keyboardType="numeric"
+          value={altura}
+          onChangeText={text=>setAltura(text)}
         />
       </SafeAreaView>
       <Button
         title="Calcular meu IMC"
-        onPress={() => Alert.alert("Não tenha Preça! Irei calcular algum dia")}
+        onPress={() => { 
+          var imc = Functionalities.calcImc({peso},{altura})
+          Alert.alert(imc)
+        }}
       />
       <View
         style={styles.separator}
